@@ -20,14 +20,14 @@ public class ScrollablePanelAdapter extends PanelAdapter {
     private static final int DATE_TYPE = 1;
     private static final int ORDER_TYPE = 2;
 
-    private List<Integer> roomInfoList=new ArrayList<>();
-    private List<DateInfo> dateInfoList = new ArrayList<>();
-    private List<List<OrderInfo>> ordersList =new ArrayList<>();
+//    private List<Integer> roomInfoList=new ArrayList<>();
+//    private List<DateInfo> dateInfoList = new ArrayList<>();
+//    private List<List<OrderInfo>> ordersList =new ArrayList<>();
 
 
     @Override
     public int getRowCount() {
-        return 10;
+        return 20;
     }
 
     @Override
@@ -42,7 +42,16 @@ public class ScrollablePanelAdapter extends PanelAdapter {
            case TITLE_TYPE:
                break;
            case ROOM_TYPE:
-               (DateViewHolder)holder.
+               ((DateViewHolder)holder).item.setText(row+"");
+               break;
+           case DATE_TYPE:
+               ((DateViewHolder)holder).item.setText(column+"");
+               break;
+           case ORDER_TYPE:
+               ((DateViewHolder)holder).item.setText(row+""+column);
+               break;
+           default:
+               break;
        }
 
     }
@@ -65,8 +74,6 @@ public class ScrollablePanelAdapter extends PanelAdapter {
 
                 return new DateViewHolder(LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item, parent, false));
-
-
     }
 
 
@@ -81,9 +88,9 @@ public class ScrollablePanelAdapter extends PanelAdapter {
 
 
 
-    public void setDateInfoList(List<DateInfo> dateInfoList) {
-        this.dateInfoList = dateInfoList;
-    }
+//    public void setDateInfoList(List<DateInfo> dateInfoList) {
+//        this.dateInfoList = dateInfoList;
+//    }
 
 
 }
